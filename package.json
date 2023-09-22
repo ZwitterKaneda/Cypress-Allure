@@ -6,18 +6,25 @@
 	"license": "MIT",
 	"scripts": {
 		"test": "cypress open --e2e -- browser chrome",
-		"regression": "cypress run --browser chrome --spec 'cypress/e2e/*.cy.ts'"
+		"regression": "cypress run --browser chrome --reporter cypress-multi-reporters --reporter-options configFile=regression.json --spec 'cypress/e2e/*.cy.ts' --env allure=true",
+		"allure:report": "allure generate reports/ --clean -o reports/allure-report ; cd reports/ && allure open",
+		"regressionAllure": "rm -R -f reports/ ; yarn regression ; yarn allure:report"
 	},
 	"devDependencies": {
-		"@shelex/cypress-allure-plugin": "^2.40.0",
-		"@typescript-eslint/eslint-plugin": "^6.7.2",
-		"@typescript-eslint/parser": "^6.7.2",
-		"allure-commandline": "^2.24.0",
-		"cypress": "^13.2.0",
-		"eslint": "^8.49.0",
-		"eslint-config-prettier": "^9.0.0",
-		"eslint-plugin-only-warn": "^1.1.0",
-		"prettier": "^3.0.3",
-		"typescript": "^5.2.2"
+		"@shelex/cypress-allure-plugin": "2.40.0",
+		"@typescript-eslint/eslint-plugin": "6.7.2",
+		"@typescript-eslint/parser": "6.7.2",
+		"allure-commandline": "2.24.0",
+		"cypress": "13.2.0",
+		"cypress-multi-reporters": "1.6.3",
+		"cypress-plugin-api": "2.11.1",
+		"eslint": "8.49.0",
+		"eslint-config-prettier": "9.0.0",
+		"eslint-plugin-only-warn": "1.1.0",
+		"mocha": "10.2.0",
+		"mocha-allure-reporter": "1.4.0",
+		"mocha-junit-reporter": "2.2.1",
+		"prettier": "3.0.3",
+		"typescript": "5.2.2"
 	}
 }

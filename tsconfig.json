@@ -1,10 +1,7 @@
 {
 	"compilerOptions": {
 		"esModuleInterop": true,
-		"allowJs": true,
-		"baseUrl": "./",
-		"noEmit": true,
-		"types": ["cypress","@shelex/cypress-allure-plugin"],
+		"types": ["cypress"],
 		"paths": {
 			"@fixture/*": ["./cypress/fixtures/DOM/*"],
 			"@pages/*": ["./cypress/support/Pages/*"],
@@ -12,4 +9,19 @@
 		}
 	},
 	"exclude": ["node_modules"],
+	"reporterEnabled": "spec, mocha-junit-reporter, mochawesome",
+	"mochaJunitReporterReporterOptions": {
+		"mochaFile": "reports/test-results.xml",
+		"toConsole": false,
+		"outputs": true,
+		"testCaseSwitchClassnameAndName": true
+	},
+	"mochawesomeReporterReporterOptions": {
+		"mochaFile": "mochawesome.json"
+	},
+
+	"allowJs": true,
+	"baseUrl": "./",
+	"types": ["@shelex/cypress-allure-plugin"],
+	"noEmit": true
 }
