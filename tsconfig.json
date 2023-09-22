@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"esModuleInterop": true,
+		"allowJs": true,
+		"baseUrl": "./",
+		"noEmit": true,
+		"types": ["cypress","@shelex/cypress-allure-plugin"],
+		"paths": {
+			"@fixture/*": ["./cypress/fixtures/DOM/*"],
+			"@pages/*": ["./cypress/support/Pages/*"],
+			"@helper/*": ["./cypress/support/helper/*"]
+		}
+	},
+	"exclude": ["node_modules"],
+}
